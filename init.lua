@@ -45,8 +45,8 @@ vim.cmd("set wildmenu") -- enable wildmenu
 vim.cmd('set shell=/bin/zsh')
 
 -- set transparent background
-vim.api.nvim_set_hl(0, 'Normal', { bg = "None" })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = "None" })
+vim.api.nvim_set_hl(0, 'Normal', { bg = "None"})
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = "None"})
 
 -- Functional wrapper for mapping custom keybindings
 function map(mode, lhs, rhs, opts)
@@ -89,13 +89,13 @@ map("n", "<C-Right>", ":vertical resize -3<CR>") -- Control+Right resizes vertic
 map("n", "<leader>e", ":25Lex<CR>") -- space+e toggles netrw tree view
 
 -- Automatically create if, case, and function templates
-map("n", "<leader>i", "iif [ @ ]; then <CR><CR> else <CR><CR> fi <ESC>/@ <CR>")
-map("n", "<leader>c", 'icase "$@" in <CR><CR> @)   <CR>;; <CR><CR> esac <ESC>5kI<ESC>/@<CR>')
-map("n", "<leader>f", "i@() {<CR><CR> } <ESC>2kI<ESC>/@<CR>")
+-- map("n", "<leader>i", "iif [ @ ]; then <CR><CR> else <CR><CR> fi <ESC>/@ <CR>")
+-- map("n", "<leader>c", 'icase "$@" in <CR><CR> @)   <CR>;; <CR><CR> esac <ESC>5kI<ESC>/@<CR>')
+-- map("n", "<leader>f", "i@() {<CR><CR> } <ESC>2kI<ESC>/@<CR>")
 
 -- Easy way to get back to normal mode from home row
-map("i", "kj", "<Esc>") -- kj simulates ESC
-map("i", "jk", "<Esc>") -- jk simulates ESC
+-- map("i", "kj", "<Esc>") -- kj simulates ESC
+-- map("i", "jk", "<Esc>") -- jk simulates ESC
 
 -- Automatically close brackets, parethesis, and quotes
 map("i", "'", "''<left>")
@@ -107,9 +107,9 @@ map("i", "{;", "{};<left><left>")
 map("i", "/*", "/**/<left><left>")
 
 -- Automatically create if, case, and function templates in insert mode
-map("i", ",i", "if [ @ ]; then <CR><CR> else <CR><CR> fi ")
-map("i", ",c", 'case "$@" in <CR><CR> @)    ;; <CR><CR> esac')
-map("i", ",f", "@() {<CR><CR> } ")
+-- map("i", ",i", "if [ @ ]; then <CR><CR> else <CR><CR> fi ")
+-- map("i", ",c", 'case "$@" in <CR><CR> @)    ;; <CR><CR> esac')
+-- map("i", ",f", "@() {<CR><CR> } ")
 
 -- Visual Maps
 map("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
@@ -150,6 +150,11 @@ config.setup({
 	ensure_installed = {"lua", "python", "c", "html", "css", "json"},
 	highlight = { enable = true },
 	indent = { enable = true },
+})
+
+--colorscheme
+require("solarized-osaka").setup({
+	vim.cmd[[colorscheme solarized-osaka]]
 })
 
 -- setup keymaps for telescope
